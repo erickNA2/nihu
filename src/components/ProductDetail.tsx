@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { useCartStore } from "@/store/CartStore";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
 
 interface Props {
 	product: Stripe.Product;
@@ -14,6 +15,47 @@ export const ProductDetail = ({ product }: Props) => {
 	const price = product.default_price as Stripe.Price;
 	const cartItem = items.find((item) => item.id === product.id);
 	const quantity = cartItem ? cartItem.quantity : 0;
+
+	const successToast = (message: string, type: number) => {
+		switch (type) {
+			case 1:
+				toast.success(message, {
+					position: "bottom-right",
+					autoClose: 800,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "light",
+				});
+				break;
+			case 2:
+				toast.error(message, {
+					position: "bottom-right",
+					autoClose: 800,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "light",
+				});
+				break;
+			default:
+				toast(message, {
+					position: "bottom-right",
+					autoClose: 800,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "light",
+				});
+				break;
+		}
+	};
 
 	const onAddItem = () => {
 		addItem({
@@ -55,12 +97,21 @@ export const ProductDetail = ({ product }: Props) => {
 				<div className="flex items-center space-x-4 mb-4">
 					<Button
 						variant={"outline"}
-						onClick={() => removeItem(product.id)}
+						onClick={() => {
+							removeItem(product.id);
+							quantity ? successToast("Item removido", 2) : null;
+						}}
 					>
 						-
 					</Button>
 					<span className="text-lg font-semibold">{quantity}</span>
-					<Button variant={"outline"} onClick={onAddItem}>
+					<Button
+						variant={"outline"}
+						onClick={() => {
+							onAddItem();
+							successToast("Item Adicionado", 1);
+						}}
+					>
 						+
 					</Button>
 				</div>
@@ -79,6 +130,7 @@ export const ProductDetail = ({ product }: Props) => {
 					</Button>
 				</div>
 			</div>
+			<ToastContainer />
 		</div>
 	);
 };

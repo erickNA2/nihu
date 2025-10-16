@@ -42,7 +42,7 @@ export default function Carousel({ products }: Props) {
 					/>
 				</Link>
 			)}
-			<CardContent className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 pointer-events-none">
+			<CardContent className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br  from-[#3333333a] to-[#4444443f] pointer-events-none">
 				<CardTitle className="text-3xl font-bold text-white mb-2">
 					{currentProduct.name}
 					{price && price.unit_amount && (
