@@ -60,7 +60,7 @@ export default function CheckoutPage() {
 										{item.name}
 									</span>
 									<span className="font-semibold">
-										$
+										R$
 										{(
 											(item.price * item.quantity) /
 											100
@@ -91,8 +91,12 @@ export default function CheckoutPage() {
 							</li>
 						))}
 					</ul>
-					<div className="mt-4 border-t pt-2 text-lg font-semibold">
-						Total: ${(total / 100).toFixed(2)}
+					<div className="mt-4 pt-2 text-lg font-semibold">
+						Total: R${(total / 100).toFixed(2)}
+					</div>
+					<div className="pt-2 text-md">
+						Pix: R$
+						{(total / 100 - ((total / 100) * 4) / 100).toFixed(2)}
 					</div>
 				</CardContent>
 			</Card>

@@ -3,15 +3,14 @@ import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
 	return (
-		<div className=" relative mt-4 w-full h-50 grid grid-rows-3 grid-cols-1 bg-[#1A5534]">
-			<div className="relative w-full h-full row-span-2 flex flex-col items-center justify-center text-lg text-white">
+		<div className=" relative mt-4 w-full h-40 grid grid-cols-1 bg-[#1A5534]">
+			<div className="relative w-full h-full row-span-2 flex flex-col items-center justify-center text-md text-white">
 				<h1>
 					Alguma duvida?{" "}
 					<Link
 						href={"/"}
 						className="hover:underline transition-all duration-500"
 					>
-						{" "}
 						Entre em Contato
 					</Link>
 				</h1>
@@ -19,7 +18,7 @@ export default function Footer() {
 					<li>
 						<Link href={"/"}>
 							<FaInstagram
-								size={24}
+								size={22}
 								className="transition-all duration-200 hover:scale-120"
 							/>
 						</Link>
@@ -27,7 +26,7 @@ export default function Footer() {
 					<li>
 						<Link href={"/"}>
 							<FaFacebook
-								size={24}
+								size={22}
 								className="transition-all duration-200 hover:scale-120"
 							/>
 						</Link>
@@ -35,7 +34,7 @@ export default function Footer() {
 					<li>
 						<Link href={"/"}>
 							<FaWhatsapp
-								size={24}
+								size={22}
 								className="transition-all duration-200 hover:scale-120"
 							/>
 						</Link>

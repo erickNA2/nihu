@@ -18,7 +18,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="pt-br">
 			<head>
 				<link
 					rel="icon"
@@ -27,9 +27,9 @@ export default function RootLayout({
 					sizes="<generated>"
 				/>
 			</head>
-			<body className="flex min-h-full flex-col bg-white overflow-x-hidden mt-12">
+			<body className="flex min-h-full flex-col bg-white overflow-x-hidden mt-10">
 				<Navbar></Navbar>
-				<main className="flex-grow container mx-auto px-4 py-8">
+				<main className="flex-grow container mx-auto py-8">
 					{children}
 				</main>
 				<Footer></Footer>
